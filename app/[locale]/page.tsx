@@ -1,0 +1,37 @@
+import { HomePage } from "@/pages/home/ui/HomePage"
+import type { Locale } from "@/shared/config/i18n"
+import { isLocale } from "@/shared/config/i18n"
+import { getPageContent, getSeo } from "@/shared/content"
+import { buildPageMetadata } from "@/shared/seo/metadata"
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+
+// Перечисляет локали, для которых нужно сгенерировать главную страницу на этапе сборки.
+export function generateStaticParams() {
+	return [{ locale: "en" }, { locale: "th" }]
+}
+
+export const dynamicParams = false
+export const revalidate = false
+
+type PageProps = {
+	params: Promise<{ locale: string }>
+}
+
+// Формирует SEO-метаданные главной страницы для указанной локали.
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+	const { locale: localeParam } = await params
+	if (!isLocale(localeParam)) notFound()
+	const locale: Locale = localeParam
+	const seo = getSeo(locale, "home")
+	return buildPageMetadata({ locale, path: "", seo })
+}
+
+// Возвращает локализованный контент для главной страницы или 404 при неверной локали.
+export default async function Page({ params }: PageProps) {
+	const { locale: localeParam } = await params
+	if (!isLocale(localeParam)) notFound()
+	const locale: Locale = localeParam
+	const content = getPageContent(locale, "home")
+	return <HomePage content={content} />
+}
