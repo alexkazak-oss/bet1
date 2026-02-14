@@ -1,5 +1,4 @@
-import {loadSpin, markClaimed} from '@/features/fortune-wheel/api/store'
-import {PRIZES} from '@/features/fortune-wheel/model/constants'
+import {loadSpin, markClaimed, PRIZES} from '@/features/fortune-wheel'
 import {NextResponse} from 'next/server'
 
 export async function POST(request: Request) {

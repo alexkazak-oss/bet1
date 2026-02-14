@@ -1,9 +1,9 @@
-import {saveSpin} from '@/features/fortune-wheel/api/store'
 import {
 	POINTER_OFFSET_DEG,
 	PRIZES,
 	SAFE_MARGIN_RATIO,
-} from '@/features/fortune-wheel/model/constants'
+	saveSpin,
+} from '@/features/fortune-wheel'
 import {NextResponse} from 'next/server'
 
 const RATE_LIMIT_WINDOW_MS = 5000

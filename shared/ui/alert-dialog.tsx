@@ -125,7 +125,7 @@ export const AlertDialogContent = forwardRef<HTMLDivElement, AlertDialogContentP
 						role="alertdialog"
 						aria-modal="true"
 						className={clsx(
-							"relative z-50 w-full max-w-lg rounded-(--radius-card) border border-(--border-subtle) bg-(--surface-card) p-6 text-(--text-primary) shadow-(--shadow-soft)",
+							"relative z-50 w-full max-w-2xl rounded-(--radius-card) border border-(--border-subtle) bg-(--surface-card) p-6 text-(--text-primary) shadow-(--shadow-soft)",
 							className,
 						)}
 						{...props}

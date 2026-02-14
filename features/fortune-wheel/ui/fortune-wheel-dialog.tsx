@@ -1,6 +1,5 @@
 "use client"
 
-import type { FortuneWheelClientProps } from "@/features/fortune-wheel/ui/fortune-wheel.client"
 import { DEFAULT_LOCALE, type Locale } from "@/shared/config/i18n"
 import { getBaseUrl } from "@/shared/config/site"
 import { getFeatures } from "@/shared/content"
@@ -18,6 +17,7 @@ import dynamic from "next/dynamic"
 import { Suspense, useCallback, useMemo, useState } from "react"
 import type { Phase } from "../model/state"
 import type { Prize } from "../model/types"
+import type { FortuneWheelClientProps } from "./fortune-wheel.client"
 
 type FortuneWheelDialogProps = {
 	locale?: Locale
@@ -25,7 +25,7 @@ type FortuneWheelDialogProps = {
 	onResultAction?: (prize: Prize) => void
 }
 
-const lazyWheelImport = () => import("@/features/fortune-wheel/ui/fortune-wheel.client").then((mod) => mod.FortuneWheelClient)
+const lazyWheelImport = () => import("./fortune-wheel.client").then((mod) => mod.FortuneWheelClient)
 const LazyFortuneWheel = dynamic<FortuneWheelClientProps>(lazyWheelImport, { ssr: false })
 
 export const FortuneWheelDialog = ({ locale = DEFAULT_LOCALE, copyOverride, onResultAction }: FortuneWheelDialogProps) => {
@@ -42,6 +42,8 @@ export const FortuneWheelDialog = ({ locale = DEFAULT_LOCALE, copyOverride, onRe
 			idleStatus: featureTexts.idleStatus,
 			spinningStatus: featureTexts.spinningStatus,
 			resultPrefix: featureTexts.resultPrefix,
+			claimLabel: featureTexts.claimLabel,
+			claimingLabel: featureTexts.claimingLabel,
 		}),
 		[featureTexts],
 	)
@@ -58,8 +60,8 @@ export const FortuneWheelDialog = ({ locale = DEFAULT_LOCALE, copyOverride, onRe
 		}
 	}
 
-	const handleSpinningEnd = (label: string, id: string) => {
-		onResultAction?.({ id, label } as Prize)
+	const handleSpinningEnd = (prize: Prize) => {
+		onResultAction?.(prize)
 	}
 
 	return (
@@ -73,7 +75,7 @@ export const FortuneWheelDialog = ({ locale = DEFAULT_LOCALE, copyOverride, onRe
 					{featureTexts.triggerLabel}
 				</button>
 			</AlertDialogTrigger>
-			<AlertDialogContent className="max-w-3xl">
+			<AlertDialogContent className="block h-auto max-h-(80vh) overflow-hidden">
 				<AlertDialogHeader>
 					<AlertDialogTitle>{featureTexts.title}</AlertDialogTitle>
 					<AlertDialogDescription>{featureTexts.description}</AlertDialogDescription>

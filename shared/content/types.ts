@@ -48,6 +48,8 @@ export type FortuneWheelContent = {
 	idleStatus: string
 	spinningStatus: string
 	resultPrefix: string
+	claimLabel: string
+	claimingLabel: string
 	emptyPrizes: string
 	prizes: string[]
 }

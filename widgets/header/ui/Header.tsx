@@ -1,8 +1,8 @@
 "use client"
 
-import { BurgerMenu } from "@/features/burger-menu/ui/BurgerMenu"
+import { BurgerMenu } from "@/features/burger-menu"
 import { FortuneWheelDialog } from "@/features/fortune-wheel"
-import { LanguageSwitcher } from "@/features/language-switcher/ui/LanguageSwitcher"
+import { LanguageSwitcher } from "@/features/language-switcher"
 import type { Locale } from "@/shared/config/i18n"
 import { pagePathMap } from "@/shared/content"
 import type { FortuneWheelContent, NavigationContent } from "@/shared/content/types"
