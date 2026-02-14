@@ -1,5 +1,5 @@
 import type {Locale} from '@/shared/config/i18n'
-import {DEFAULT_LOCALE} from '@/shared/config/i18n'
+import {DEFAULT_LOCALE, SUPPORTED_LOCALES} from '@/shared/config/i18n'
 import {getBaseUrl, siteConfig} from '@/shared/config/site'
 import type {SeoFields} from '@/shared/content/types'
 import type {Metadata} from 'next'
@@ -23,8 +23,17 @@ export const buildPageMetadata = ({
 	const baseUrl = getBaseUrl()
 	const normalizedPath = path === '/' ? '' : path
 	const localizedPath = `/${locale}${normalizedPath}`
-	const canonical = `${baseUrl}${localizedPath || `/${locale}`}`
+	const languageLinks = SUPPORTED_LOCALES.reduce<Record<string, string>>(
+		(acc, code) => {
+			acc[code] = `${baseUrl}/${code}${normalizedPath}` || `${baseUrl}/${code}`
+			return acc
+		},
+		{},
+	)
+
+	const canonical = languageLinks[locale]
 	const xDefaultLocale: Locale = DEFAULT_LOCALE
+	languageLinks['x-default'] = languageLinks[xDefaultLocale]
 
 	return {
 		metadataBase: new URL(baseUrl),
@@ -32,11 +41,7 @@ export const buildPageMetadata = ({
 		description: seo.description,
 		alternates: {
 			canonical,
-			languages: {
-				en: `/th${normalizedPath}` || '/th',
-				th: `/en${normalizedPath}` || '/en',
-				'x-default': `/${xDefaultLocale}${normalizedPath}` || '/th',
-			},
+			languages: languageLinks,
 		},
 		robots: {
 			index: true,

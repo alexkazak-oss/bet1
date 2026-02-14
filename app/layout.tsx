@@ -1,6 +1,8 @@
+import { DEFAULT_LOCALE, isLocale } from "@/shared/config/i18n"
 import { getBaseUrl, siteConfig } from "@/shared/config/site"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
+import { headers } from "next/headers"
 import type { ReactNode } from "react"
 import "./globals.css"
 
@@ -22,15 +24,21 @@ export const metadata: Metadata = {
 	description: "",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: ReactNode
 }>) {
-	// Оборачивает приложение глобальной разметкой и подключает выбранные шрифты.
+	// Определяем локаль из URL, чтобы lang совпадал на сервере и клиенте и не вызывал гидрационные предупреждения.
+	const headerList = await headers()
+	const requestUrl = headerList.get("x-middleware-request-url")
+	const pathname = requestUrl ? new URL(requestUrl).pathname : "/"
+	const firstSegment = pathname.split("/").filter(Boolean)[0]
+	const locale = isLocale(firstSegment) ? firstSegment : DEFAULT_LOCALE
+
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<body className={` ${geistSans.variable} ${geistMono.variable} antialiased `}>
+		<html lang={locale} suppressHydrationWarning>
+			<body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				{children}
 			</body>
 		</html>
