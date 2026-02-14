@@ -3,21 +3,21 @@
 :root {
   --font-sans: var(--font-geist-sans, "Inter", system-ui, -apple-system, sans-serif);
   --font-mono: var(--font-geist-mono, "SFMono-Regular", "Menlo", monospace);
-  --surface-page: #f8fafc;
-  --surface-card: rgba(255, 255, 255, 0.85);
-  --surface-hero: linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1224 100%);
-  --border-subtle: #e5e7eb;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
+  --surface-page: #121212;
+  --surface-card: rgba(237, 176, 9, 0.899);
+  --surface-hero: linear-gradient(135deg, #4c4c4b 0%, #414243 60%, #626261 100%);
+  --border-subtle: #ebee3b;
+  --text-primary: #040404;
+  --text-secondary: #e9c200;
+  --text-muted: #e5d68c;
   --text-on-dark: #ffffff;
 
-  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.12);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --shadow-button: 0 6px 14px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 20px 40px rgba(143, 143, 141, 0.12);
+  --shadow-card: 0 10px 30px rgba(157, 156, 153, 0.405);
+  --shadow-button: 0 6px 14px rgba(154, 153, 153, 0.822);
 
-  --radius-card: 1rem;
-  --radius-hero: 1.5rem;
+  --radius-card: 0.5rem;
+  --radius-hero: 1rem;
   --radius-pill: 9999px;
 
   --container-max: 80rem;
@@ -25,18 +25,18 @@
   --container-py: 3rem;
   --stack-gap: 3rem;
 
-  --header-px: 1.5rem;
+  --header-px: 2.5rem;
   --header-py: 1rem;
-  --header-gap: 1.5rem;
-  --nav-gap: 0.5rem;
+  --header-gap: 2.5rem;
+  --nav-gap: 1.5rem;
 
-  --chip-bg: #f3f4f6;
-  --chip-bg-hover: #e5e7eb;
-  --chip-bg-active: #0f172a;
-  --chip-text: #111827;
-  --chip-text-active: #ffffff;
+  --chip-bg: #f0c20a;
+  --chip-bg-hover: #edf90c;
+  --chip-bg-active: #ede9e9;
+  --chip-text: #1b1b1b;
+ --chip-text-active: #ac9a54f0;
 
-  --hero-gap: 1rem;
+  --hero-gap: 2rem;
   --hero-px: 1.5rem;
   --hero-py: 3rem;
   --hero-title-size: clamp(1.875rem, 3vw, 2.5rem);
@@ -86,7 +86,33 @@ a {
 
     --section-grid-gap: 1.25rem;
 
+	 --header-px: 2.5rem;
+
     --footer-px: 2.5rem;
     --footer-py: 2rem;
+
+
   }
+}
+
+@keyframes prize-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px 2px rgba(237, 172, 9, 0.5), 0 0 20px 4px rgba(237, 172, 9, 0.25);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 16px 6px rgba(237, 172, 9, 0.7), 0 0 36px 10px rgba(237, 172, 9, 0.35);
+    transform: scale(1.07);
+  }
+}
+
+.prize-claim-btn {
+  animation: prize-glow 1.6s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+.prize-claim-btn:hover {
+  animation-play-state: paused;
+  box-shadow: 0 0 20px 8px rgba(237, 172, 9, 0.8), 0 0 40px 14px rgba(237, 172, 9, 0.4);
+  transform: scale(1.1);
 }

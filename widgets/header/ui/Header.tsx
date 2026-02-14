@@ -1,21 +1,23 @@
 "use client"
 
-import { LanguageSwitcher } from "@/features/language-switcher/ui/LanguageSwitcher"
+import { BurgerMenu } from "@/features/burger-menu"
+import { FortuneWheelDialog } from "@/features/fortune-wheel"
+import { LanguageSwitcher } from "@/features/language-switcher"
 import type { Locale } from "@/shared/config/i18n"
 import { pagePathMap } from "@/shared/content"
-import type { NavigationContent } from "@/shared/content/types"
+import type { FortuneWheelContent, NavigationContent } from "@/shared/content/types"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 type HeaderProps = {
 	locale: Locale
 	nav: NavigationContent
+	fortuneWheel: FortuneWheelContent
 }
 
 // Отрисовывает шапку с локализованной навигацией и переключателем языка.
-export const Header = ({ locale, nav }: HeaderProps) => {
+export const Header = ({ locale, nav, fortuneWheel }: HeaderProps) => {
 	const pathname = usePathname()
-
 	const links = [
 		{ label: nav.home, href: pagePathMap.home },
 		{ label: nav.services, href: pagePathMap.services },
@@ -31,15 +33,14 @@ export const Header = ({ locale, nav }: HeaderProps) => {
 		return pathname?.startsWith(fullPath)
 	}
 
-	// Рендерит шапку сайта с логотипом, навигацией и переключателем языка.
 	return (
-		<header className="sticky top-0 z-20 border-b border-(--border-subtle) bg-(--surface-card) backdrop-blur-md">
-			<div className="mx-auto flex w/full max-w-(--container-max) items-center justify-between gap-(--header-gap) px-(--header-px) py-(--header-py)">
-				<div className="flex items-center gap-(--header-gap)">
+		<header className="flex items-center justify-center sticky top-0 z-20 border-b border-(--border-subtle) bg-(--surface-card) backdrop-blur-md">
+			<div className="mx-auto hidden w-full max-w-(--container-max) gap-(--header-gap) px-(--header-px) py-(--header-py) md:flex">
+				<div className="flex w-full justify-between gap-(--header-gap)">
 					<Link href={`/${locale}`} className="text-lg font-semibold text-(--text-primary)">
 						Acme
 					</Link>
-					<nav className="flex flex-wrap items-center gap-(--nav-gap)">
+					<nav className="flex flex-wrap items-center gap-(--nav-gap) justify-center">
 						{links.map((link) => (
 							<Link
 								key={link.href || "home"}
@@ -54,8 +55,29 @@ export const Header = ({ locale, nav }: HeaderProps) => {
 							</Link>
 						))}
 					</nav>
+					<div className="flex items-center gap-3">
+						<FortuneWheelDialog locale={locale} copyOverride={fortuneWheel} />
+						<LanguageSwitcher />
+					</div>
 				</div>
-				<LanguageSwitcher />
+			</div>
+			<div className="md:hidden">
+				<Link
+					href={`/${locale}`}
+					className="fixed left-4 top-4 z-30 text-lg font-semibold text-(--text-primary)"
+				>
+					Acme
+				</Link>
+				<BurgerMenu
+					locale={locale}
+					links={links}
+					extra={
+						<div className="flex flex-col gap-3">
+							<FortuneWheelDialog locale={locale} copyOverride={fortuneWheel} />
+							<LanguageSwitcher />
+						</div>
+					}
+				/>
 			</div>
 		</header>
 	)

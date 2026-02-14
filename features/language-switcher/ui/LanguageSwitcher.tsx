@@ -23,6 +23,7 @@ export const LanguageSwitcher = () => {
 		(nextLocale: Locale) => {
 			if (!pathname) return
 			const nextPath = buildPath(pathname, nextLocale)
+			document.cookie = `NEXT_LOCALE=${nextLocale}; Max-Age=${60 * 60 * 24 * 365}; Path=/; SameSite=Lax`
 			router.push(nextPath)
 			router.refresh()
 		},

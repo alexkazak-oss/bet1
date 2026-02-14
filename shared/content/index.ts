@@ -1,6 +1,7 @@
 import type {Locale} from '@/shared/config/i18n'
 import {DEFAULT_LOCALE, SUPPORTED_LOCALES} from '@/shared/config/i18n'
 import type {
+	FeaturesContent,
 	FooterContent,
 	LocalizedContent,
 	NavigationContent,
@@ -156,6 +157,25 @@ const en: LocalizedContent = {
 				'Reach the Acme Services team for project inquiries, partnerships, and support.',
 		},
 	},
+	features: {
+		fortuneWheel: {
+			triggerLabel: 'Open the wheel',
+			title: 'Fortune wheel',
+			description: 'Spin the wheel to reveal a prize.',
+			loading: 'Loading…',
+			closeLabel: 'Close',
+			doneLabel: 'Done',
+			spinLabel: 'Spin',
+			spinningLabel: 'Spinning…',
+			idleStatus: 'Tap to try your luck',
+			spinningStatus: 'Spinning…',
+			resultPrefix: 'Result:',
+			claimLabel: 'Claim',
+			claimingLabel: 'Claiming',
+			emptyPrizes: 'Add at least one prize to spin the wheel.',
+			prizes: ['10% off', 'Free audit', 'Priority support', 'Bonus feature'],
+		},
+	},
 }
 
 const th: LocalizedContent = {
@@ -303,6 +323,25 @@ const th: LocalizedContent = {
 				'ติดต่อทีม Acme Services สำหรับโปรเจ็กต์ พาร์ทเนอร์ และการซัพพอร์ต',
 		},
 	},
+	features: {
+		fortuneWheel: {
+			triggerLabel: 'หมุนวงล้อ',
+			title: 'วงล้อเสี่ยงโชค',
+			description: 'หมุนวงล้อเพื่อดูว่าคุณจะได้รางวัลอะไร',
+			loading: 'กำลังโหลด…',
+			closeLabel: 'ปิด',
+			doneLabel: 'เสร็จสิ้น',
+			spinLabel: 'หมุน',
+			spinningLabel: 'กำลังหมุน…',
+			idleStatus: 'แตะเพื่อเสี่ยงโชค',
+			spinningStatus: 'กำลังหมุน…',
+			resultPrefix: 'ผลลัพธ์:',
+			claimLabel: 'รับรางวัล',
+			claimingLabel: 'กำลังรับ',
+			emptyPrizes: 'เพิ่มรางวัลอย่างน้อยหนึ่งรายการก่อนหมุนวงล้อ',
+			prizes: ['ส่วนลด 10%', 'ตรวจสอบระบบฟรี', 'ซัพพอร์ตพิเศษ', 'ฟีเจอร์โบนัส'],
+		},
+	},
 }
 
 const contentByLocale: Record<Locale, LocalizedContent> = {
@@ -329,6 +368,10 @@ export const getNav = (locale: Locale): NavigationContent =>
 // Возвращает содержимое футера для указанной локали.
 export const getFooter = (locale: Locale): FooterContent =>
 	getContent(locale).footer
+
+// Возвращает словарь фич для указанной локали.
+export const getFeatures = (locale: Locale): FeaturesContent =>
+	getContent(locale).features
 
 export const locales: Locale[] = [...SUPPORTED_LOCALES]
 
