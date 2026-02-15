@@ -11,21 +11,21 @@ type TestimonialsSectionProps = {
 }
 
 export const TestimonialsSection = ({ eyebrow, title, subtitle, items }: TestimonialsSectionProps) => (
-	<section className="bg-white py-16 md:py-24">
-		<div className="mx-auto flex max-w-6xl flex-col gap-12 px-5">
+	<section className="bg-(--l-bg) py-(--l-section-py)">
+		<div className="mx-auto flex max-w-(--l-max-w) flex-col gap-12 px-(--l-px)">
 			<div className="flex flex-col items-center justify-between gap-4 md:flex-row">
 				<SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} align="left" />
 				<div className="flex gap-2">
 					<button
 						type="button"
-						className="flex size-10 items-center justify-center rounded-full bg-white text-gray-400 shadow-sm transition hover:bg-blue-50 hover:text-blue-600"
+						className="flex size-10 items-center justify-center rounded-(--radius-pill) bg-(--l-bg) text-(--l-text-faint) shadow-(--shadow-sm) transition hover:bg-(--l-accent-bg) hover:text-(--l-accent)"
 						aria-label="Previous testimonial"
 					>
 						<ChevronLeft className="size-5" />
 					</button>
 					<button
 						type="button"
-						className="flex size-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-sm transition hover:bg-blue-700"
+						className="flex size-10 items-center justify-center rounded-(--radius-pill) bg-(--l-accent) text-(--l-bg) shadow-(--shadow-sm) transition hover:bg-(--l-accent-hover)"
 						aria-label="Next testimonial"
 					>
 						<ChevronRight className="size-5" />
@@ -41,7 +41,7 @@ export const TestimonialsSection = ({ eyebrow, title, subtitle, items }: Testimo
 				{items.map((_, i) => (
 					<span
 						key={i}
-						className={`block size-2.5 rounded-full ${i === 0 ? 'bg-blue-600' : 'bg-gray-200'}`}
+						className={`block size-2.5 rounded-(--radius-pill) ${i === 0 ? 'bg-(--l-accent)' : 'bg-(--l-inactive)'}`}
 					/>
 				))}
 			</div>

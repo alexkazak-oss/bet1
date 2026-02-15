@@ -25,7 +25,7 @@ export const BurgerMenu = ({ locale, links, extra }: BurgerMenuProps) => {
 		<div className="md:hidden">
 			<button
 				type="button"
-				className="fixed right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-(--radius-pill) border border-(--border-subtle) bg-(--surface-card) text-(--text-primary) shadow-(--shadow-button) transition hover:bg-(--chip-bg-hover)"
+				className="fixed right-(--burger-offset) top-(--burger-offset) z-30 flex h-(--burger-btn-size) w-(--burger-btn-size) items-center justify-center rounded-(--radius-pill) border border-(--border-subtle) bg-(--surface-card) text-(--text-primary) shadow-(--shadow-button) transition hover:bg-(--chip-bg-hover)"
 				aria-label={isOpen ? "Close menu" : "Open menu"}
 				aria-expanded={isOpen}
 				aria-controls="mobile-nav"
@@ -47,14 +47,14 @@ export const BurgerMenu = ({ locale, links, extra }: BurgerMenuProps) => {
 			{isOpen ? (
 				<div
 					id="mobile-nav"
-					className="fixed left-3 right-3 top-16 z-20 rounded-lg border border-(--border-subtle) bg-(--surface-card) px-(--header-px) pb-(--header-py) pt-3 shadow-lg backdrop-blur-sm"
+					className="fixed left-(--burger-panel-inset-x) right-(--burger-panel-inset-x) top-(--burger-panel-top) z-20 rounded-(--radius-card) border border-(--border-subtle) bg-(--surface-card) px-(--header-px) pb-(--header-py) pt-3 shadow-(--shadow-lg) backdrop-blur-sm"
 				>
 					<nav className="flex flex-col gap-2">
 						{links.map((link) => (
 							<Link
 								key={link.href || "home"}
 								href={`/${locale}${link.href}` || `/${locale}`}
-								className={`rounded-(--radius-pill) px-3 py-2 text-sm font-medium transition ${isActive(link.href)
+								className={`rounded-(--radius-pill) px-(--chip-px) py-(--chip-py) text-sm font-medium transition ${isActive(link.href)
 									? "bg-(--chip-bg-active) text-(--chip-text-active)"
 									: "bg-(--chip-bg) text-(--chip-text) hover:bg-(--chip-bg-hover)"
 									}`}

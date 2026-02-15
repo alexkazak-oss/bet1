@@ -1,25 +1,49 @@
+import Image from "next/image"
+import { NeonButton } from "./NeonButton"
+
 type HeroProps = {
-	heading: string
-	lead: string
-	ctaLabel?: string
+  imageSrc?: string
+  heading: string
+  lead: string
+  ctaLabel?: string
+  redirectUrl?: string
 }
 
-// Отрисовывает крупный блок героя с заголовком, описанием и кнопкой по токенам темы.
-export const Hero = ({ heading, lead, ctaLabel }: HeroProps) => (
-	<div className="flex flex-col gap-(--hero-gap) rounded-(--radius-hero) bg-(--surface-hero) px-(--hero-px) py-(--hero-py) text-(--text-on-dark) shadow-(--shadow-soft)">
-		<div className="flex flex-col gap-3 sm:max-w-3xl">
-			<h1 className="text-(--hero-title-size) font-semibold leading-tight">{heading}</h1>
-			<p className="text-(--hero-lead-size) leading-relaxed opacity-80">{lead}</p>
-		</div>
-		{ctaLabel ? (
-			<div>
-				<a
-					className="inline-flex items-center justify-center rounded-(--radius-pill) bg-(--surface-card) px-4 py-2 text-sm font-semibold text-(--text-primary) shadow-(--shadow-button) transition hover:shadow-(--shadow-soft)"
-					href="#contact"
-				>
-					{ctaLabel}
-				</a>
-			</div>
-		) : null}
-	</div>
-)
+const envRedirect = process.env.NEXT_PUBLIC_SITE_URL
+
+export const Hero = ({ imageSrc, heading, lead, ctaLabel, redirectUrl }: HeroProps) => {
+  const href = redirectUrl ?? envRedirect
+
+  return (
+    <div className="relative flex w-screen min-h-(--hero-min-h) overflow-hidden">
+      {imageSrc && (
+        <Image
+          src={imageSrc}
+          alt=""
+          quality={80}
+          fill
+          priority
+          className="object-cover"
+        />
+      )}
+
+      <div className="flex z-10 mx-auto w-full px-(--container-px) py-(--hero-py) text-(--text-on-dark) justify-end items-center">
+        <div className="flex flex-col gap-(--hero-gap) sm:max-w-(--hero-content-max-w)">
+          <h1 className="text-(length:--hero-title-size) font-semibold leading-tight">
+            {heading}
+          </h1>
+
+          <h2 className="leading-relaxed opacity-(--hero-lead-opacity)">{lead}</h2>
+
+          {ctaLabel && (
+            <div>
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <NeonButton>{ctaLabel}</NeonButton>
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

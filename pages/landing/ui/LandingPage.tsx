@@ -1,4 +1,3 @@
-import { SearchBar } from '@/features/search-bar'
 import { landingContent } from '@/shared/content/landing-data'
 import { CatalogSection } from '@/widgets/landing-catalog'
 import { FeatureSection } from '@/widgets/landing-feature'
@@ -24,7 +23,6 @@ export const LandingPage = () => {
 				ctaSecondary={c.hero.ctaSecondary}
 			/>
 
-			<SearchBar placeholder={c.searchBar.placeholder} buttonLabel={c.searchBar.buttonLabel} />
 
 			<StepsSection
 				eyebrow={c.steps.eyebrow}

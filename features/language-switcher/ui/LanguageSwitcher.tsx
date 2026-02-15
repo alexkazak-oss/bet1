@@ -39,7 +39,7 @@ export const LanguageSwitcher = () => {
 						key={locale}
 						type="button"
 						onClick={() => changeLocale(locale)}
-						className={`rounded-(--radius-pill) px-3 py-1 transition ${isActive
+						className={`rounded-(--radius-pill) px-(--switcher-px) py-(--switcher-py) transition ${isActive
 							? "bg-(--chip-bg-active) text-(--chip-text-active)"
 							: "bg-(--chip-bg) text-(--chip-text) hover:bg-(--chip-bg-hover)"
 							}`}

@@ -24,9 +24,9 @@ export const CatalogTabs = ({ tabs, cars, discoverLabel }: CatalogTabsProps) => 
 						key={tab}
 						type="button"
 						onClick={() => setActive(tab)}
-						className={`rounded-full px-5 py-2 text-sm font-medium transition ${active === tab
-								? 'bg-blue-600 text-white shadow-sm'
-								: 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+						className={`rounded-(--radius-pill) px-5 py-2 text-sm font-medium transition ${active === tab
+							? 'bg-(--l-accent) text-(--l-bg) shadow-(--shadow-sm)'
+							: 'bg-(--l-border) text-(--l-text-secondary) hover:bg-(--l-inactive)'
 							}`}
 					>
 						{tab}
@@ -40,7 +40,7 @@ export const CatalogTabs = ({ tabs, cars, discoverLabel }: CatalogTabsProps) => 
 			</div>
 			<a
 				href="#"
-				className="text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+				className="text-sm font-semibold text-(--l-accent) transition hover:text-(--l-accent-hover)"
 			>
 				{discoverLabel}
 			</a>

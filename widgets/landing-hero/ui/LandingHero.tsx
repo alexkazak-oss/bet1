@@ -9,22 +9,22 @@ type LandingHeroProps = {
 }
 
 export const LandingHero = ({ eyebrow, title, description, ctaPrimary, ctaSecondary }: LandingHeroProps) => (
-	<section className="bg-gradient-to-b from-blue-50 to-white pb-16 pt-12 md:pb-24 md:pt-20">
-		<div className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-5 md:flex-row md:gap-16">
+	<section className="pb-16 pt-12 md:pb-24 md:pt-20">
+		<div className="mx-auto flex max-w-(--l-max-w) flex-col-reverse items-center gap-10 px-(--l-px) md:flex-row md:gap-16">
 			<div className="flex flex-1 flex-col gap-6">
-				<span className="text-sm font-semibold uppercase tracking-wider text-blue-600">{eyebrow}</span>
-				<h1 className="text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">{title}</h1>
-				<p className="max-w-lg text-base leading-relaxed text-gray-500 md:text-lg">{description}</p>
+				<span className="text-sm font-semibold uppercase tracking-wider text-(--l-accent)">{eyebrow}</span>
+				<h1 className="text-(length:--hero-heading-lg) font-extrabold leading-tight text-(--l-text)">{title}</h1>
+				<p className="max-w-lg text-base leading-relaxed md:text-lg text-(--l-text-muted)">{description}</p>
 				<div className="flex flex-wrap gap-3">
 					<a
 						href="#"
-						className="rounded-full bg-blue-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+						className="rounded-(--radius-pill) px-7 py-3 text-sm font-semibold bg-(--l-accent) text-(--l-bg) hover:bg-(--l-accent-hover) shadow-(--shadow-sm) transition"
 					>
 						{ctaPrimary}
 					</a>
 					<a
 						href="#"
-						className="rounded-full border border-gray-300 bg-white px-7 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50"
+						className="rounded-(--radius-pill) border border-(--l-text-dark) px-7 py-3 text-sm font-semibold text-(--l-text-dark) hover:bg-(--l-border) shadow-(--shadow-sm) transition"
 					>
 						{ctaSecondary}
 					</a>
