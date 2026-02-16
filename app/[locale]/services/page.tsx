@@ -1,6 +1,6 @@
 import { ServicesPage } from "@/pages/services/ui/ServicesPage"
 import type { Locale } from "@/shared/config/i18n"
-import { isLocale } from "@/shared/config/i18n"
+import { isLocale, SUPPORTED_LOCALES } from "@/shared/config/i18n"
 import { getPageContent, getSeo } from "@/shared/content"
 import { buildPageMetadata } from "@/shared/seo/metadata"
 import type { Metadata } from "next"
@@ -10,9 +10,8 @@ type PageProps = {
 	params: Promise<{ locale: string }>
 }
 
-// Перечисляет локали для предрендера страницы "Services".
 export function generateStaticParams() {
-	return [{ locale: "en" }, { locale: "th" }]
+	return SUPPORTED_LOCALES.map((locale) => ({ locale }))
 }
 
 export const dynamicParams = false

@@ -1,12 +1,28 @@
 import type {Locale} from '@/shared/config/i18n'
 import {DEFAULT_LOCALE} from '@/shared/config/i18n'
 import {getBaseUrl, siteConfig} from '@/shared/config/site'
+import {siteJson} from '@/shared/config/site-json'
 import type {SeoFields} from '@/shared/content/types'
 import type {Metadata} from 'next'
 
-// Маппит локаль Next.js в формат locale для OpenGraph.
+const LOCALE_OG_MAP: Record<string, string> = {
+	th: 'th_TH',
+	en: 'en_US',
+	ja: 'ja_JP',
+	ko: 'ko_KR',
+	zh: 'zh_CN',
+	vi: 'vi_VN',
+	id: 'id_ID',
+	ms: 'ms_MY',
+	de: 'de_DE',
+	fr: 'fr_FR',
+	es: 'es_ES',
+	pt: 'pt_BR',
+	ru: 'ru_RU',
+}
+
 const localeToOg = (locale: Locale): string =>
-	locale === 'th' ? 'th_TH' : 'en_US'
+	LOCALE_OG_MAP[locale] ?? `${locale}_${locale.toUpperCase()}`
 
 export type BuildMetadataParams = {
 	locale: Locale
@@ -19,17 +35,29 @@ export const buildPageMetadata = ({
 	path,
 	seo,
 }: BuildMetadataParams): Metadata => {
-	// Собирает метаданные страницы (каноникал, OG, twitter) для переданной локали и пути.
 	const baseUrl = getBaseUrl()
 	const normalizedPath = path === '/' ? '' : path
-	const localizedPath = `/${locale}${normalizedPath}`
-	const canonical = `${baseUrl}${localizedPath || `/${locale}`}`
+	const languageLinks = SUPPORTED_LOCALES.reduce<Record<string, string>>(
+		(acc, code) => {
+			acc[code] = `${baseUrl}/${code}${normalizedPath}` || `${baseUrl}/${code}`
+			return acc
+		},
+		{},
+	)
+
+	const canonical = languageLinks[locale]
 	const xDefaultLocale: Locale = DEFAULT_LOCALE
+
+	const {robots: robotsCfg, titleTemplate, keywords} = siteJson.seo
 
 	return {
 		metadataBase: new URL(baseUrl),
-		title: seo.title,
+		title: {
+			default: seo.title,
+			template: titleTemplate,
+		},
 		description: seo.description,
+		keywords,
 		alternates: {
 			canonical,
 			languages: {
@@ -39,8 +67,8 @@ export const buildPageMetadata = ({
 			},
 		},
 		robots: {
-			index: true,
-			follow: true,
+			index: robotsCfg.index,
+			follow: robotsCfg.follow,
 		},
 		openGraph: {
 			title: seo.ogTitle ?? seo.title,

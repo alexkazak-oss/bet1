@@ -1,0 +1,30 @@
+{
+	"brand": {
+		"name": "BET"
+	},
+	"i18n": {
+		"defaultLocale": "th",
+		"locales": [
+			"th",
+			"en"
+		]
+	},
+	"region": {
+		"countryCode": "TH",
+		"language": "th"
+	},
+	"seo": {
+		"titleTemplate": "%s | BET",
+		"defaultTitle": "BET — Full-stack web studio",
+		"description": "We design, build, and optimize digital experiences that convert.",
+		"keywords": [
+			"web development",
+			"design",
+			"digital agency"
+		],
+		"robots": {
+			"index": true,
+			"follow": true
+		}
+	}
+}

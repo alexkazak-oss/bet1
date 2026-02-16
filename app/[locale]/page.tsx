@@ -1,6 +1,6 @@
 import { HomePage } from "@/pages/home/ui/HomePage"
 import type { Locale } from "@/shared/config/i18n"
-import { isLocale } from "@/shared/config/i18n"
+import { isLocale, SUPPORTED_LOCALES } from "@/shared/config/i18n"
 import { getPageContent, getSeo } from "@/shared/content"
 import { buildPageMetadata } from "@/shared/seo/metadata"
 import type { Metadata } from "next"
@@ -8,7 +8,7 @@ import { notFound } from "next/navigation"
 
 // Перечисляет локали, для которых нужно сгенерировать главную страницу на этапе сборки.
 export function generateStaticParams() {
-	return [{ locale: "en" }, { locale: "th" }]
+	return SUPPORTED_LOCALES.map((locale) => ({ locale }))
 }
 
 export const dynamicParams = false
