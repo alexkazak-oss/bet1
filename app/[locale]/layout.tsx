@@ -1,6 +1,6 @@
 import type { Locale } from "@/shared/config/i18n"
 import { isLocale, SUPPORTED_LOCALES } from "@/shared/config/i18n"
-import { getFeatures, getFooter, getNav } from "@/shared/content"
+import { getFooter, getNav } from "@/shared/content"
 import { Footer } from "@/widgets/footer/ui/Footer"
 import { Header } from "@/widgets/header/ui/Header"
 import { notFound } from "next/navigation"

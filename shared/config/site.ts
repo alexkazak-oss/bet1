@@ -6,5 +6,5 @@ export const siteConfig = {
 	redirectTarget: process.env.REDIRECT_TARGET_URL || 'https://example.com',
 }
 
-// Возвращает базовый URL без завершающего слэша для построения ссылок.
+// Возвращает базовый URL без завершающего слэша для построения ссылок и SEO-метаданных
 export const getBaseUrl = (): string => siteConfig.baseUrl.replace(/\/$/, '')

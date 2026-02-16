@@ -1,6 +1,6 @@
-import siteJsonRaw from '@/content/site.json'
 import type {NextRequest} from 'next/server'
 import {NextResponse} from 'next/server'
+import siteJsonRaw from './content/site.json'
 
 const LOCALES = new Set<string>(siteJsonRaw.i18n.locales)
 const DEFAULT_LOCALE = siteJsonRaw.i18n.defaultLocale

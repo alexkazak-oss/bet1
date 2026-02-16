@@ -1,5 +1,5 @@
 import type {Locale} from '@/shared/config/i18n'
-import {DEFAULT_LOCALE} from '@/shared/config/i18n'
+import {DEFAULT_LOCALE, SUPPORTED_LOCALES} from '@/shared/config/i18n'
 import {getBaseUrl, siteConfig} from '@/shared/config/site'
 import {siteJson} from '@/shared/config/site-json'
 import type {SeoFields} from '@/shared/content/types'
@@ -26,7 +26,7 @@ const localeToOg = (locale: Locale): string =>
 
 export type BuildMetadataParams = {
 	locale: Locale
-	path: string // leading slash or empty for root
+	path: string
 	seo: SeoFields
 }
 

@@ -4,7 +4,7 @@ export type SiteConfig = {
 	}
 	i18n: {
 		defaultLocale: string
-		locales: string[]
+		locales: readonly string[] | string[]
 	}
 	region: {
 		countryCode: string

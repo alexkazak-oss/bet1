@@ -42,4 +42,27 @@ export type LocalizedContent = {
 	footer: FooterContent
 	pages: Record<PageKey, PageContent>
 	seo: Record<PageKey, SeoFields>
+	features?: FeaturesContent
+}
+
+export type FortuneWheelContent = {
+	triggerLabel: string
+	title: string
+	description: string
+	loading: string
+	closeLabel: string
+	doneLabel: string
+	spinLabel: string
+	spinningLabel: string
+	idleStatus: string
+	spinningStatus: string
+	resultPrefix: string
+	claimLabel: string
+	claimingLabel: string
+	emptyPrizes: string
+	prizes: string[]
+}
+
+export type FeaturesContent = {
+	fortuneWheel: FortuneWheelContent
 }
