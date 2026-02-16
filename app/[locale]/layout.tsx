@@ -1,5 +1,5 @@
 import type { Locale } from "@/shared/config/i18n"
-import { isLocale } from "@/shared/config/i18n"
+import { isLocale, SUPPORTED_LOCALES } from "@/shared/config/i18n"
 import { getFeatures, getFooter, getNav } from "@/shared/content"
 import { Footer } from "@/widgets/footer/ui/Footer"
 import { Header } from "@/widgets/header/ui/Header"
@@ -8,9 +8,8 @@ import { setRequestLocale } from "next-intl/server"
 import { notFound } from "next/navigation"
 import type { ReactNode } from "react"
 
-// Описывает локали, для которых заранее собираются страницы.
 export function generateStaticParams() {
-	return [{ locale: "th" }, { locale: "en" }]
+	return SUPPORTED_LOCALES.map((locale) => ({ locale }))
 }
 
 export const dynamicParams = false

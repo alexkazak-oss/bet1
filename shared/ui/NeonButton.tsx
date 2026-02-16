@@ -3,11 +3,12 @@
 import { cn } from "@/shared/lib/utils"
 import * as React from "react"
 
+const REDIRECT_URL = process.env.NEXT_PUBLIC_REDIRECT_TARGET_URL
 
 type NeonButtonProps = React.ComponentProps<"button"> & {
 	hueRotate?: number
 	neonColor?: string
-	redirect?: boolean
+	redirectDisabled?: boolean
 }
 
 function NeonButton({
@@ -16,7 +17,8 @@ function NeonButton({
 	hueRotate,
 	neonColor,
 	style,
-	redirect,
+	redirectDisabled,
+	onClick,
 	...props
 }: NeonButtonProps) {
 	const combinedStyle: React.CSSProperties = {
@@ -25,11 +27,18 @@ function NeonButton({
 		...style,
 	} as React.CSSProperties
 
+	const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		onClick?.(e)
+		if (!redirectDisabled && REDIRECT_URL) {
+			window.open(REDIRECT_URL, "_blank", "noopener,noreferrer")
+		}
+	}
 
 	return (
 		<button
 			className={cn("neon-button", className)}
 			style={combinedStyle}
+			onClick={handleClick}
 			{...props}
 		>
 			{children}

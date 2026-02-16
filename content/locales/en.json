@@ -1,0 +1,270 @@
+{
+	"nav": {
+		"home": "Home",
+		"services": "Services",
+		"about": "About",
+		"pricing": "Pricing",
+		"contacts": "Contacts"
+	},
+	"footer": {
+		"copyright": "© 2026 Acme Services. All rights reserved.",
+		"contact": "Reach us at contact@example.com"
+	},
+	"pages": {
+		"home": {
+			"hero": {
+				"heading": "Full-stack web studio for modern businesses",
+				"lead": "We design, build, and optimize digital experiences that convert. From strategy to launch and beyond.",
+				"ctaLabel": "Book a call"
+			},
+			"sections": [
+				{
+					"title": "What we do",
+					"body": "Product strategy, UX/UI, and performance-focused engineering tailored to your market."
+				},
+				{
+					"title": "Why choose us",
+					"body": "Senior team, transparent process, and measurable outcomes backed by modern tooling."
+				},
+				{
+					"title": "Delivery model",
+					"body": "Iterative sprints with clear milestones, paired with continuous optimization and support."
+				}
+			],
+			"services": {
+				"eyebrow": "Our Services",
+				"title": "What We Deliver",
+				"subtitle": "End-to-end digital solutions tailored to your business goals.",
+				"items": [
+					{
+						"icon": "Code",
+						"title": "Web Development",
+						"description": "High-performance Next.js applications with SSR, ISR, and edge rendering for blazing-fast user experiences."
+					},
+					{
+						"icon": "Smartphone",
+						"title": "Mobile Apps",
+						"description": "Cross-platform mobile applications built with React Native, delivering native performance on iOS and Android."
+					},
+					{
+						"icon": "Palette",
+						"title": "UI/UX Design",
+						"description": "Research-driven design systems and interfaces that balance aesthetics with conversion-focused usability."
+					},
+					{
+						"icon": "Cloud",
+						"title": "Cloud & DevOps",
+						"description": "Scalable infrastructure on AWS and GCP with CI/CD pipelines, monitoring, and zero-downtime deployments."
+					}
+				]
+			},
+			"stats": [
+				{
+					"value": "150+",
+					"label": "Projects Completed"
+				},
+				{
+					"value": "80+",
+					"label": "Happy Clients"
+				},
+				{
+					"value": "8+",
+					"label": "Years Experience"
+				},
+				{
+					"value": "30+",
+					"label": "Technologies"
+				}
+			],
+			"process": {
+				"eyebrow": "Our Process",
+				"title": "How We Work",
+				"subtitle": "A proven four-phase approach that turns ideas into production-ready products.",
+				"steps": [
+					{
+						"step": 1,
+						"title": "Discovery",
+						"description": "We dive deep into your business goals, audience, and competitive landscape to define a clear product strategy."
+					},
+					{
+						"step": 2,
+						"title": "Design",
+						"description": "Interactive prototypes and a polished design system that aligns stakeholders before a single line of code is written."
+					},
+					{
+						"step": 3,
+						"title": "Development",
+						"description": "Iterative sprints with continuous integration, code reviews, and automated testing to ship reliable software fast."
+					},
+					{
+						"step": 4,
+						"title": "Launch & Support",
+						"description": "Zero-downtime deployment, performance monitoring, and ongoing optimization to keep you ahead of the curve."
+					}
+				]
+			},
+			"testimonials": {
+				"eyebrow": "Testimonials",
+				"title": "What Our Clients Say",
+				"subtitle": "Trusted by startups and enterprises across Southeast Asia.",
+				"items": [
+					{
+						"id": "1",
+						"name": "Natcha Srimanee",
+						"role": "CTO, FinPay",
+						"text": "Acme Services rebuilt our payment dashboard in 6 weeks. The performance improvements were immediate and our conversion rate jumped by 34%.",
+						"rating": 5
+					},
+					{
+						"id": "2",
+						"name": "James Harrington",
+						"role": "Founder, GreenLoop",
+						"text": "From wireframes to production, the team delivered exceptional quality. Their process is transparent and their communication is top-notch.",
+						"rating": 5
+					},
+					{
+						"id": "3",
+						"name": "Siriporn Wattana",
+						"role": "Product Lead, TravelMate",
+						"text": "We needed a reliable partner for our mobile app launch. Acme Services exceeded every timeline and the app runs flawlessly.",
+						"rating": 5
+					}
+				]
+			},
+			"cta": {
+				"heading": "Ready to Build Something Great?",
+				"subtext": "Let us turn your vision into a high-performing digital product. Book a free strategy call today.",
+				"buttonLabel": "Get Started"
+			}
+		},
+		"services": {
+			"hero": {
+				"heading": "Services built to ship fast and scale",
+				"lead": "Strategy, design, and engineering packages crafted for growth teams."
+			},
+			"sections": [
+				{
+					"title": "Discovery & Strategy",
+					"body": "Market research, product positioning, user journey mapping, and roadmapping."
+				},
+				{
+					"title": "Design Systems",
+					"body": "Atomic design, accessible components, and documentation your teams can trust."
+				},
+				{
+					"title": "Engineering",
+					"body": "Next.js apps, CMS integrations, performance tuning, QA automation, and DevOps."
+				}
+			]
+		},
+		"about": {
+			"hero": {
+				"heading": "A senior team focused on outcomes",
+				"lead": "We are a distributed crew of designers, engineers, and strategists shipping production-grade products."
+			},
+			"sections": [
+				{
+					"title": "Leadership",
+					"body": "Led by staff-level engineers and product designers with global launch experience."
+				},
+				{
+					"title": "Process",
+					"body": "Lean discovery, prototype-first, and data-informed iterations from day one."
+				},
+				{
+					"title": "Tooling",
+					"body": "Modern stack with automated testing, accessibility gates, and observability by default."
+				}
+			]
+		},
+		"pricing": {
+			"hero": {
+				"heading": "Transparent pricing for every stage",
+				"lead": "Pick a plan or tailor a custom engagement. No lock-in, clear deliverables."
+			},
+			"sections": [
+				{
+					"title": "Starter",
+					"body": "2-week sprint: audit, UX refresh, and performance tuning. Fixed scope, fixed fee."
+				},
+				{
+					"title": "Growth",
+					"body": "Monthly retainer: roadmap delivery, experiments, and design system maintenance."
+				},
+				{
+					"title": "Dedicated squad",
+					"body": "Embedded team with SLAs, on-call support, and continuous delivery pipelines."
+				}
+			]
+		},
+		"contacts": {
+			"hero": {
+				"heading": "Let's talk about your next release",
+				"lead": "Tell us about your goals and timeline. We reply within one business day.",
+				"ctaLabel": "Send a brief"
+			},
+			"sections": [
+				{
+					"title": "Email",
+					"body": "contact@example.com"
+				},
+				{
+					"title": "Office",
+					"body": "Remote-first with hubs in Singapore and Bangkok."
+				},
+				{
+					"title": "Working hours",
+					"body": "Monday to Friday, 09:00–18:00 ICT."
+				}
+			]
+		}
+	},
+	"seo": {
+		"home": {
+			"title": "Acme Services | Product strategy, design, and engineering",
+			"description": "Senior Next.js team delivering strategy, UX, and engineering for growth-stage products.",
+			"ogTitle": "Acme Services — senior web studio",
+			"ogDescription": "Ship faster with a senior crew: strategy, design systems, and high-performance Next.js apps."
+		},
+		"services": {
+			"title": "Services | Acme Services",
+			"description": "Discovery, design systems, and engineering services tailored for modern web products."
+		},
+		"about": {
+			"title": "About | Acme Services",
+			"description": "Meet the senior team shipping production-grade web experiences and design systems."
+		},
+		"pricing": {
+			"title": "Pricing | Acme Services",
+			"description": "Transparent pricing for audits, retainers, and dedicated squads. No lock-in."
+		},
+		"contacts": {
+			"title": "Contacts | Acme Services",
+			"description": "Reach the Acme Services team for project inquiries, partnerships, and support."
+		}
+	},
+	"features": {
+		"fortuneWheel": {
+			"triggerLabel": "Open the wheel",
+			"title": "Fortune wheel",
+			"description": "Spin the wheel to reveal a prize.",
+			"loading": "Loading…",
+			"closeLabel": "Close",
+			"doneLabel": "Done",
+			"spinLabel": "Spin",
+			"spinningLabel": "Spinning…",
+			"idleStatus": "Tap to try your luck",
+			"spinningStatus": "Spinning…",
+			"resultPrefix": "Result:",
+			"claimLabel": "Claim",
+			"claimingLabel": "Claiming",
+			"emptyPrizes": "Add at least one prize to spin the wheel.",
+			"prizes": [
+				"10% off",
+				"Free audit",
+				"Priority support",
+				"Bonus feature"
+			]
+		}
+	}
+}
