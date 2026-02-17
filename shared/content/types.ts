@@ -7,6 +7,37 @@ export type Section = {
 	body: string
 }
 
+export type ServiceItem = {
+	icon: string
+	title: string
+	description: string
+}
+
+export type StatItem = {
+	value: string
+	label: string
+}
+
+export type ProcessStep = {
+	step: number
+	title: string
+	description: string
+}
+
+export type Testimonial = {
+	id: string
+	name: string
+	role: string
+	text: string
+	rating: number
+}
+
+export type CTAContent = {
+	heading: string
+	subtext: string
+	buttonLabel: string
+}
+
 export type PageContent = {
 	hero: {
 		heading: string
@@ -14,6 +45,26 @@ export type PageContent = {
 		ctaLabel?: string
 	}
 	sections: Section[]
+	services?: {
+		eyebrow: string
+		title: string
+		subtitle: string
+		items: ServiceItem[]
+	}
+	stats?: StatItem[]
+	process?: {
+		eyebrow: string
+		title: string
+		subtitle: string
+		steps: ProcessStep[]
+	}
+	testimonials?: {
+		eyebrow: string
+		title: string
+		subtitle: string
+		items: Testimonial[]
+	}
+	cta?: CTAContent
 }
 
 export type SeoFields = {

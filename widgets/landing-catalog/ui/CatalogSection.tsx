@@ -12,8 +12,8 @@ type CatalogSectionProps = {
 }
 
 export const CatalogSection = ({ eyebrow, title, subtitle, tabs, cars, discoverLabel }: CatalogSectionProps) => (
-	<section className="bg-gray-50 py-16 md:py-24" id="resources">
-		<div className="mx-auto flex max-w-6xl flex-col gap-12 px-5">
+	<section className="bg-(--l-bg-alt) py-(--l-section-py)" id="resources">
+		<div className="mx-auto flex max-w-(--l-max-w) flex-col gap-12 px-(--l-px)">
 			<SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
 			<CatalogTabs tabs={tabs} cars={cars} discoverLabel={discoverLabel} />
 		</div>

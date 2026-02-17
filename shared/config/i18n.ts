@@ -1,9 +1,10 @@
-export const SUPPORTED_LOCALES = ['en', 'th'] as const
+import {siteJson} from './site-json'
 
-export type Locale = (typeof SUPPORTED_LOCALES)[number]
+export const SUPPORTED_LOCALES = siteJson.i18n.locales as readonly string[]
 
-export const DEFAULT_LOCALE: Locale = 'th'
+export type Locale = string & {}
 
-// Проверяет, входит ли переданное значение в список поддерживаемых локалей.
+export const DEFAULT_LOCALE: Locale = siteJson.i18n.defaultLocale
+
 export const isLocale = (value: string): value is Locale =>
-	SUPPORTED_LOCALES.includes(value as Locale)
+	(SUPPORTED_LOCALES as readonly string[]).includes(value)

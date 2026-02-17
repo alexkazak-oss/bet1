@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  /* ── 1. Fonts ────────────────────────────────────────── */
   --font-sans: var(--font-geist-sans, "Inter", system-ui, -apple-system, sans-serif);
   --font-mono: var(--font-geist-mono, "SFMono-Regular", "Menlo", monospace);
+
+  /* ── 2. Colors · Main Theme ──────────────────────────── */
   --surface-page: #121212;
   --surface-card: rgba(237, 176, 9, 0.899);
   --surface-hero: linear-gradient(135deg, #4c4c4b 0%, #414243 60%, #626261 100%);
@@ -12,45 +15,118 @@
   --text-muted: #e5d68c;
   --text-on-dark: #ffffff;
 
+  /* ── 3. Colors · Landing Theme ───────────────────────── */
+  --l-accent: #2563eb;
+  --l-accent-hover: #1d4ed8;
+  --l-accent-light: #dbeafe;
+  --l-accent-bg: #eff6ff;
+  --l-accent-faint: #93c5fd;
+  --l-bg: #ffffff;
+  --l-bg-alt: #f9fafb;
+  --l-text: #111827;
+  --l-text-dark: #374151;
+  --l-text-secondary: #4b5563;
+  --l-text-muted: #6b7280;
+  --l-text-faint: #9ca3af;
+  --l-text-lighter: #d1d5db;
+  --l-inactive: #e5e7eb;
+  --l-border: #f3f4f6;
+  --l-border-accent: #bfdbfe;
+  --l-danger: #f87171;
+
+  /* ── 4. Shadows ──────────────────────────────────────── */
   --shadow-soft: 0 20px 40px rgba(143, 143, 141, 0.12);
   --shadow-card: 0 10px 30px rgba(157, 156, 153, 0.405);
   --shadow-button: 0 6px 14px rgba(154, 153, 153, 0.822);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
+  /* ── 5. Border Radii ─────────────────────────────────── */
   --radius-card: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
   --radius-hero: 1rem;
   --radius-pill: 9999px;
 
+  /* ── 6. Layout · Container ───────────────────────────── */
   --container-max: 80rem;
   --container-px: 1.5rem;
   --container-py: 3rem;
   --stack-gap: 3rem;
 
+  /* ── 7. Layout · Landing ─────────────────────────────── */
+  --l-max-w: 72rem;
+  --l-px: 1.25rem;
+  --l-section-py: 4rem;
+
+  /* ── 8. Responsive Typography ────────────────────────── */
+  --section-heading-size: 1.5rem;
+  --hero-heading-lg: 2.25rem;
+  --stats-value-size: 1.875rem;
+
+  /* ── 9. Header ───────────────────────────────────────── */
   --header-px: 2.5rem;
   --header-py: 1rem;
   --header-gap: 2.5rem;
   --nav-gap: 1.5rem;
+  --header-actions-gap: 0.75rem;
 
+  /* ── 10. Chip / Nav Buttons ──────────────────────────── */
   --chip-bg: #f0c20a;
   --chip-bg-hover: #edf90c;
   --chip-bg-active: #ede9e9;
   --chip-text: #1b1b1b;
- --chip-text-active: #ac9a54f0;
+  --chip-text-active: #ac9a54f0;
+  --chip-px: 0.75rem;
+  --chip-py: 0.5rem;
 
+  /* ── 11. Hero ────────────────────────────────────────── */
   --hero-gap: 2rem;
   --hero-px: 1.5rem;
   --hero-py: 3rem;
+  --hero-min-h: 50vh;
+  --hero-content-max-w: 48rem;
   --hero-title-size: clamp(1.875rem, 3vw, 2.5rem);
   --hero-lead-size: clamp(1.125rem, 2vw, 1.375rem);
+  --hero-lead-opacity: 0.8;
 
+  /* ── 12. Sections ────────────────────────────────────── */
   --section-gap: 0.75rem;
   --section-padding: 1.5rem;
   --section-grid-gap: 1rem;
+  --section-header-mb: 2rem;
+  --section-header-gap: 0.75rem;
+  --section-subtitle-max-w: 42rem;
 
+  /* ── 13. Footer ──────────────────────────────────────── */
   --footer-px: 1.5rem;
   --footer-py: 1.5rem;
   --footer-gap: 0.5rem;
+
+  /* ── 14. Dialog ──────────────────────────────────────── */
+  --dialog-max-w: 42rem;
+  --dialog-padding: 1.5rem;
+  --dialog-header-gap: 0.5rem;
+  --dialog-footer-gap: 0.75rem;
+  --dialog-footer-mt: 1.5rem;
+  --dialog-btn-h: 2.5rem;
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --dialog-cancel-bg: rgba(255, 255, 255, 0.8);
+  --dialog-cancel-bg-hover: #ffffff;
+
+  /* ── 15. Burger Menu ─────────────────────────────────── */
+  --burger-offset: 1rem;
+  --burger-btn-size: 2.5rem;
+  --burger-panel-inset-x: 0.75rem;
+  --burger-panel-top: 4rem;
+
+  /* ── 16. Language Switcher ───────────────────────────── */
+  --switcher-px: 0.75rem;
+  --switcher-py: 0.25rem;
 }
 
+/* ── Reset ─────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -58,7 +134,7 @@
 }
 
 body {
-	margin: 0 !important;
+  margin: 0 !important;
   padding: 0 !important;
   min-height: 100%;
   font-family: var(--font-sans);
@@ -71,6 +147,7 @@ a {
   text-decoration: none;
 }
 
+/* ── Responsive · sm (640 px) ──────────────────────────── */
 @media (min-width: 640px) {
   :root {
     --container-px: 2.5rem;
@@ -86,22 +163,29 @@ a {
 
     --section-grid-gap: 1.25rem;
 
-	 --header-px: 2.5rem;
-
     --footer-px: 2.5rem;
     --footer-py: 2rem;
-
-
   }
 }
 
+/* ── Responsive · md (768 px) ──────────────────────────── */
+@media (min-width: 768px) {
+  :root {
+    --l-section-py: 6rem;
+    --section-heading-size: 1.875rem;
+    --hero-heading-lg: 3rem;
+    --stats-value-size: 2.25rem;
+  }
+}
+
+/* ── Prize‑glow animation (Fortune Wheel) ──────────────── */
 @keyframes prize-glow {
   0%, 100% {
     box-shadow: 0 0 8px 2px rgba(237, 172, 9, 0.5), 0 0 20px 4px rgba(237, 172, 9, 0.25);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 16px 6px rgba(237, 172, 9, 0.7), 0 0 36px 10px rgba(237, 172, 9, 0.35);
+    box-shadow: 0 0 16px 6px rgba(78, 53, 0, 0.864), 0 0 36px 10px rgba(179, 128, 0, 0.35);
     transform: scale(1.07);
   }
 }
@@ -115,4 +199,60 @@ a {
   animation-play-state: paused;
   box-shadow: 0 0 20px 8px rgba(237, 172, 9, 0.8), 0 0 40px 14px rgba(237, 172, 9, 0.4);
   transform: scale(1.1);
+}
+
+/* ── NeonButton ────────────────────────────────────────── */
+@property --neon-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes neon-rotate {
+  to { --neon-angle: 360deg; }
+}
+
+.neon-button {
+  --neon-color: #ffd500;
+  position: relative;
+  display: inline-block;
+  padding: 16px 24px;
+  color: var(--neon-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  transition: 0.5s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 9999px;
+  z-index: 0;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 2px;
+  background: conic-gradient(from var(--neon-angle), transparent 25%, var(--neon-color));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: neon-rotate 1.5s linear infinite;
+  z-index: -1;
+}
+
+.neon-button:hover {
+  background: var(--neon-color);
+  color: #050801;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 5px var(--neon-color),
+    0 0 25px var(--neon-color),
+    0 0 50px var(--neon-color),
+    0 0 200px var(--neon-color);
 }

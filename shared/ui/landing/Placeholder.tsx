@@ -12,7 +12,7 @@ const aspectMap = {
 
 export const Placeholder = ({ label = "Image", className = "", aspect = "video" }: PlaceholderProps) => (
 	<div
-		className={`flex items-center justify-center rounded-2xl from-blue-100 to-blue-50 text-sm font-medium text-blue-400 ${aspectMap[aspect]} ${className}`}
+		className={`flex items-center justify-center font-medium ${aspectMap[aspect]} ${className}`}
 	>
 		{label}
 	</div>

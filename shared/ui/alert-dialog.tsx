@@ -88,7 +88,7 @@ export const AlertDialogOverlay = forwardRef<HTMLDivElement, AlertDialogOverlayP
 			<div
 				ref={ref}
 				{...props}
-				className={clsx("fixed inset-0 z-40 bg-black/60 backdrop-blur-sm", className)}
+				className={clsx("fixed inset-0 z-40 bg-(--overlay-bg) backdrop-blur-sm", className)}
 				onClick={composeEventHandlers(props.onClick, () => {
 					if (closeBlocked) return
 					setOpen(false)
@@ -125,7 +125,7 @@ export const AlertDialogContent = forwardRef<HTMLDivElement, AlertDialogContentP
 						role="alertdialog"
 						aria-modal="true"
 						className={clsx(
-							"relative z-50 w-full max-w-2xl rounded-(--radius-card) border border-(--border-subtle) bg-(--surface-card) p-6 text-(--text-primary) shadow-(--shadow-soft)",
+							"relative z-50 w-full max-w-(--dialog-max-w) rounded-(--radius-card) border border-(--border-subtle) bg-(--surface-card) p-(--dialog-padding) text-(--text-primary) shadow-(--shadow-soft)",
 							className,
 						)}
 						{...props}
@@ -142,7 +142,7 @@ AlertDialogContent.displayName = "AlertDialogContent"
 type AlertDialogHeaderProps = HTMLAttributes<HTMLDivElement>
 
 export const AlertDialogHeader = ({ className, ...props }: AlertDialogHeaderProps) => (
-	<div className={clsx("flex flex-col gap-2 text-(--text-primary)", className)} {...props} />
+	<div className={clsx("flex flex-col gap-(--dialog-header-gap) text-(--text-primary)", className)} {...props} />
 )
 
 AlertDialogHeader.displayName = "AlertDialogHeader"
@@ -152,7 +152,7 @@ type AlertDialogFooterProps = HTMLAttributes<HTMLDivElement>
 export const AlertDialogFooter = ({ className, ...props }: AlertDialogFooterProps) => (
 	<div
 		className={clsx(
-			"mt-6 flex flex-col-reverse gap-3 text-(--text-primary) sm:flex-row sm:items-center sm:justify-end",
+			"mt-(--dialog-footer-mt) flex flex-col-reverse gap-(--dialog-footer-gap) text-(--text-primary) sm:flex-row sm:items-center sm:justify-end",
 			className,
 		)}
 		{...props}
@@ -234,7 +234,7 @@ export const AlertDialogAction = forwardRef<HTMLButtonElement, AlertDialogAction
 				ref={ref}
 				type="button"
 				className={clsx(
-					"inline-flex h-10 items-center justify-center rounded-(--radius-pill) bg-(--text-primary) px-4 text-sm font-semibold text-(--text-on-dark) shadow-(--shadow-button) transition hover:opacity-90",
+					"inline-flex h-(--dialog-btn-h) items-center justify-center rounded-(--radius-pill) bg-(--text-primary) px-4 text-sm font-semibold text-(--text-on-dark) shadow-(--shadow-button) transition hover:opacity-90",
 					className,
 				)}
 				{...props}
@@ -255,7 +255,7 @@ export const AlertDialogCancel = forwardRef<HTMLButtonElement, AlertDialogCancel
 				ref={ref}
 				type="button"
 				className={clsx(
-					"inline-flex h-10 items-center justify-center rounded-(--radius-pill) border border-(--border-subtle) bg-white/80 px-4 text-sm font-semibold text-(--text-primary) transition hover:bg-white",
+					"inline-flex h-(--dialog-btn-h) items-center justify-center rounded-(--radius-pill) border border-(--border-subtle) bg-(--dialog-cancel-bg) px-4 text-sm font-semibold text-(--text-primary) transition hover:bg-(--dialog-cancel-bg-hover)",
 					className,
 				)}
 				{...props}

@@ -1,22 +1,20 @@
 "use client"
 
 import { BurgerMenu } from "@/features/burger-menu"
-import { FortuneWheelDialog } from "@/features/fortune-wheel"
 import { LanguageSwitcher } from "@/features/language-switcher"
 import type { Locale } from "@/shared/config/i18n"
 import { pagePathMap } from "@/shared/content"
-import type { FortuneWheelContent, NavigationContent } from "@/shared/content/types"
+import type { NavigationContent } from "@/shared/content/types"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 type HeaderProps = {
 	locale: Locale
 	nav: NavigationContent
-	fortuneWheel: FortuneWheelContent
 }
 
 // Отрисовывает шапку с локализованной навигацией и переключателем языка.
-export const Header = ({ locale, nav, fortuneWheel }: HeaderProps) => {
+export const Header = ({ locale, nav }: HeaderProps) => {
 	const pathname = usePathname()
 	const links = [
 		{ label: nav.home, href: pagePathMap.home },
@@ -45,7 +43,7 @@ export const Header = ({ locale, nav, fortuneWheel }: HeaderProps) => {
 							<Link
 								key={link.href || "home"}
 								href={`/${locale}${link.href}` || `/${locale}`}
-								className={`rounded-(--radius-pill) px-3 py-2 text-sm font-medium transition ${isActive(link.href)
+								className={`rounded-(--radius-pill) px-(--chip-px) py-(--chip-py) text-sm font-medium transition ${isActive(link.href)
 									? "bg-(--chip-bg-active) text-(--chip-text-active)"
 									: "bg-(--chip-bg) text-(--chip-text) hover:bg-(--chip-bg-hover)"
 									}`}
@@ -55,8 +53,7 @@ export const Header = ({ locale, nav, fortuneWheel }: HeaderProps) => {
 							</Link>
 						))}
 					</nav>
-					<div className="flex items-center gap-3">
-						<FortuneWheelDialog locale={locale} copyOverride={fortuneWheel} />
+					<div className="flex items-center gap-(--header-actions-gap)">
 						<LanguageSwitcher />
 					</div>
 				</div>
@@ -72,8 +69,7 @@ export const Header = ({ locale, nav, fortuneWheel }: HeaderProps) => {
 					locale={locale}
 					links={links}
 					extra={
-						<div className="flex flex-col gap-3">
-							<FortuneWheelDialog locale={locale} copyOverride={fortuneWheel} />
+						<div className="flex flex-col gap-(--header-actions-gap)">
 							<LanguageSwitcher />
 						</div>
 					}

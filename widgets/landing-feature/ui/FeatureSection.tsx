@@ -18,8 +18,8 @@ type FeatureSectionProps = {
 }
 
 export const FeatureSection = ({ eyebrow, title, subtitle, items }: FeatureSectionProps) => (
-	<section className="bg-white py-16 md:py-24" id="features">
-		<div className="mx-auto max-w-6xl px-5">
+	<section className="bg-(--l-bg) py-(--l-section-py)" id="features">
+		<div className="mx-auto max-w-(--l-max-w) px-(--l-px)">
 			<div className="mb-12">
 				<SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
 			</div>
@@ -30,12 +30,12 @@ export const FeatureSection = ({ eyebrow, title, subtitle, items }: FeatureSecti
 				<div className="flex flex-1 flex-col gap-8">
 					{items.map((item) => (
 						<div key={item.title} className="flex gap-4">
-							<div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+							<div className="flex size-12 shrink-0 items-center justify-cente bg-(--l-accent-light) text-(--l-accent)">
 								{featureIconMap[item.icon] ?? <span className="text-lg">✦</span>}
 							</div>
 							<div className="flex flex-col gap-1">
-								<h3 className="text-base font-bold text-gray-900">{item.title}</h3>
-								<p className="text-sm leading-relaxed text-gray-500">{item.description}</p>
+								<h3 className="text-base font-bold text-(--l-text)">{item.title}</h3>
+								<p className="text-sm leading-relaxed text-(--l-text-muted)">{item.description}</p>
 							</div>
 						</div>
 					))}
