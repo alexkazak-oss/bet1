@@ -6,8 +6,7 @@ import {CTASection} from '@/widgets/home-cta'
 import {ProcessSection} from '@/widgets/home-process'
 import {ServicesSection} from '@/widgets/home-services'
 import {StatsSection} from '@/widgets/home-stats'
-import {HomeTestimonialsSection} from '@/widgets/home-testimonials'
-
+import { HomeTestimonialsSection } from '@/widgets/home-testimonials'
 export const HomePage = ({content}: {content: PageContent}) => (
 	<>
 		<div className='w-full flex items-center justify-center'>
@@ -29,7 +28,7 @@ export const HomePage = ({content}: {content: PageContent}) => (
 					/>
 				))}
 			</div>
-
+			
 			{content.services && (
 				<ServicesSection
 					eyebrow={content.services.eyebrow}

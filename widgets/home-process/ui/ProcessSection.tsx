@@ -1,4 +1,4 @@
-import { ProcessStepCard } from "@/entities/process-step"
+import { ProcessStepCard } from "@/entities/process-step-card"
 import type { ProcessStep } from "@/shared/content/types"
 
 type ProcessSectionProps = {

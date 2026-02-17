@@ -71,11 +71,10 @@ export const FortuneWheelDialog = ({ locale = DEFAULT_LOCALE, copyOverride, onRe
 				<NeonButton
 					type="button"
 					redirectDisabled
-					className="inline-flex items-center justify-center rounded-(--radius-pill) bg-(--text-primary) px-4 py-2 text-sm font-semibold text-(--text-on-dark) shadow-(--shadow-button) transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--text-primary)"
+					className="size-18 md:size-28 rounded-full p-0 shadow-(--shadow-button) transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2"
 					onPointerEnter={prefetchWheel}
-				>
-					{featureTexts.triggerLabel}
-				</NeonButton>
+					bgImageSrc="/elements/fortune-wheel/wheel-button.svg"
+				/>
 			</AlertDialogTrigger>
 			<AlertDialogContent className="block h-auto max-h-(80vh) overflow-hidden">
 				<AlertDialogHeader>

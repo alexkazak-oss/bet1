@@ -9,6 +9,7 @@ type NeonButtonProps = React.ComponentProps<"button"> & {
 	hueRotate?: number
 	neonColor?: string
 	redirectDisabled?: boolean
+	bgImageSrc?: string // путь к svg или другому изображению для фона
 }
 
 function NeonButton({
@@ -19,6 +20,7 @@ function NeonButton({
 	style,
 	redirectDisabled,
 	onClick,
+	bgImageSrc,
 	...props
 }: NeonButtonProps) {
 	const combinedStyle: React.CSSProperties = {
@@ -36,12 +38,18 @@ function NeonButton({
 
 	return (
 		<button
-			className={cn("neon-button", className)}
+			className={cn("neon-button relative overflow-hidden", className)}
 			style={combinedStyle}
 			onClick={handleClick}
 			{...props}
 		>
-			{children}
+			{bgImageSrc && (
+				<span
+					className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+					style={{ backgroundImage: `url('${bgImageSrc}')` }}
+				/>
+			)}
+			<span className="relative z-10 flex items-center justify-center w-full h-full">{children}</span>
 		</button>
 	)
 }
